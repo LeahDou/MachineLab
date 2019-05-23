@@ -1,0 +1,66 @@
+
+1 Over all project concept and description 
+My final project is a sound machine ( sound band) It has two parts: the precession and main tone. The precession part is made of three solenoids with aluminum as an extension to work as a drum stick and three cans as drums. The main tone part is a piezo buzzer that can play the main tone. I reused my Robe Golding Project as the trigger to start the buzzer and the drums are always playing as beats. . 
+
+List of important parts : 
+Two Arduino Unos 
+Drum: 
+Three large solenoids 
+Three transistors 
+Three diodes
+Three cans 
+Three aluminums sticks 
+ballons
+
+Buzzer: 
+Piezo buzzer 
+
+Amplifier:
+Four piezo 
+Amplifier 
+Piezo speakers 
+
+
+ How does it work 
+The machine contains mainly two parts. The drums are mainly moved by the solenoid. The code has a solenoid to switch on and off in certain beats so that the head of the solenoid would come frontwards and backward and works as drums. 
+The Rube Golding machine has the ball fall from the start point into a box. There is a switch inside the box when the ball falls into the box, the switch is on and triggers the buzzer to start to play the tone. The buzzer is mainly controlled by code to make tones. 
+The amplifiers. I have three amplifiers inside the cans to amplify the vibration of the cans. Another one is next to the buzzer to amplifier the buzzer. 
+
+How did I build this 
+
+I started with the drum part. At first, I am thinking to use the motor as the drum machine. I first tested with servo motor but the servo turns out to be too slow to move, then I decided to use DC motor and controlled its speed. The drum stick is stuck to the motor and spinning. The cans stay still and while the motor spin, it hit the can to make the sound. 
+
+Then I realized that the dc motor wouldn’t have enough force to hit the cans. It could easily stop when they meet any resistance. 
+
+Michael suggested I turn to the solenoid with the instructions of how to connect the solenoid circuit and the basic use of transistor and diode. I also referred to the website: https://learn.adafruit.com/adafruit-arduino-lesson-13-dc-motors/transistors
+I tested with one solenoid on a breadboard, and then tried three. 
+
+Then I soldered the whole circuit into the prototyping shield, it took me a great amount of time since there are three circuits sharing the same shield. 
+
+
+I also referred to the use of the class to make my code cleaner and avoid delay between each solenoid.
+I cut three aluminum sticks and connected to the solenoid with a wooden holder underneath to make the drumsticks
+
+
+Then is the buzzer part, and the switch. the buzzer has a cleaner and easier circuit. I referred to the website: https://www.instructables.com/id/How-to-use-a-Buzzer-Arduino-Tutorial/
+The harder part is to the code to play the tone of the buzzer. The basic idea is to use the PWM control the voltage that going through the piezo buzzer that makes a different pitch. So that I need a list of tone that represents different pitch ( amount of currency that going through the buzzer) and the precise time between each note. Arduino has a good tutorial of playing tone from buzzer 
+https://www.arduino.cc/en/Tutorial/PlayMelody
+
+The switch is a simple digital input on pin number 6. When and once the switch is on, the buzzer will start playing. I reused my Rube Golding machine, the ball falls into the box with switch and turns on the switch. Since it is hard to keep the switch on, I decide to have the switch connect to a digital input and send the signal to buzzer circuit so that as long as the switch is turned on even for one second, the buzzer will start to play the tone. 
+
+
+The last part is the amplifier. I referred a lot Steven’s project since he is also using the amplifier. The official website also helped a lot: 
+https://learn.adafruit.com/stereo-3-7w-class-d-audio-amplifier?view=all
+I had four objects to amplify. Three cans for the drum and the buzzer, so that I had two amplifiers with four speakers and piezo. 
+
+
+
+Problems and improvement 
+Problems:
+1 I soldered the headers of amplifiers upside down so that I had to unsoldered everything ( and I got a new amplifier )
+2 at first I wanted to use one Arduino to control everything, that causes me two troubles: 1 the prototyping shield is too crowded for buzzer circuit. 2 the buzzer and solenoid code still have a delay in between. I turned out to used two Arduino instead to avoid the problem.
+3 The solenoid wasn’t working unless I manually press it. Then Jack helped me to figure out that it needs 12 V power to work.  
+
+Improvement:
+ 1 the sound of the solenoid is louder than anything else. During the final show, I can hear the sound of the solenoid at the entrance of 006 but barely hear the sound of buzzer unless I put my ear pretty close to the buzzer. The structure of how I screwed the aluminum sticks matters and the speaker doesn’t amplify it too much is another factor. I might improve the structure to avoid this problem.
+2 The switch doesn’t work well since I didn’t stabilize the switch to let it face the direction that the ball would fall down. 
